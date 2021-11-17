@@ -13,13 +13,14 @@
 	
 	<groupId>com.suraj.springbootcruddemo</groupId>
 	<artifactId>springbootcruddemo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1</version>
 	<name>springbootcruddemo</name>
 	<description>Demo project for Spring Boot</description>
 	
 	<properties>
 		<java.version>11</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+		<docker-image-path>registry.hub.docker.com/misuraj/springbootcruddemo</docker-image-path>
 	</properties>
 	
 	<dependencies>
@@ -63,6 +64,16 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>2.5.0</version>
+				<configuration>
+					<to>
+						<image>${docker-image-path}</image>
+					</to>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
